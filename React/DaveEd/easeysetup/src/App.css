@@ -1,0 +1,13 @@
+.home {
+  min-height: 100vh;
+  background-color: rgb(47, 46, 70);
+  color: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.active {
+  opacity: 0;
+  transition: 1s ease;
+}

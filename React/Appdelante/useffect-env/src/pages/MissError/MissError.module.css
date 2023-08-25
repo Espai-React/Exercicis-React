@@ -1,0 +1,20 @@
+.misError {
+  height: 100vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.misError button {
+  font-size: 1.6rem;
+  padding: 1rem 2rem;
+  border: .2rem solid #ccc;
+  border-radius: 1rem;
+}
+
+.misError p {
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 1.6rem;
+}

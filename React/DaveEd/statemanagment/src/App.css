@@ -1,0 +1,26 @@
+.App {
+  text-align: center;
+}
+
+.nav {
+  background-color: rgb(36, 35, 35);
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+.form {
+  margin: auto;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 10px;
+  padding:15px;
+}
+
+.submit {
+  align-self: center;
+}

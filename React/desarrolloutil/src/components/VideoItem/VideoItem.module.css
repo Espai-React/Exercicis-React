@@ -1,0 +1,14 @@
+
+.ul{
+  margin: 10px 0;
+}
+
+.li {
+  list-style: none;
+  margin: 3px 0;
+}
+
+.span {
+  font-style: italic;
+  
+}

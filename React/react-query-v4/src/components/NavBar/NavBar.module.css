@@ -1,0 +1,15 @@
+.navBar button {
+  margin: 0 10px;
+  background: transparent;
+  border: 3px solid #ccc;
+  border-radius: 20px;
+  padding: 10px;
+  color: #ccc;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+.navBar button:hover {
+  color:#fff;
+  border-color: #fff;;
+}

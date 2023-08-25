@@ -1,0 +1,17 @@
+
+@import "./NormalizeModern.css";
+
+html {
+  font-size: 90%;
+}
+
+body {
+  color: #fafafad7;
+  background-color: #242424;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

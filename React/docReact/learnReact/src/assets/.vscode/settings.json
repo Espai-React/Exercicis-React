@@ -1,0 +1,10 @@
+{
+	"workbench.colorCustomizations": {
+		"errorLens.errorForeground": "#db5959",
+		"tab.activeBorder": "#db5959",
+		"tab.activeBackground": "#3d3d3d",
+		"activityBar.background": "#591504",
+		"titleBar.activeBackground": "#7D1D06",
+		"titleBar.activeForeground": "#FFFBFA"
+	}
+}

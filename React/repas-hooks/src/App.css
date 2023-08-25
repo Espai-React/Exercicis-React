@@ -1,0 +1,11 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap:40px;
+}
+
+.App h2 {
+  text-align-last: left;
+}
+

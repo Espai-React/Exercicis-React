@@ -1,0 +1,27 @@
+import React from "react";
+
+const Nav = (props) => {
+  return (
+    <nav>
+      {props.toggle ? (
+        <>
+          <li>
+            <a>Home</a>
+          </li>
+          <li>
+            <a>Personal</a>
+          </li>
+          <li>
+            <a>Analytics</a>
+          </li>
+          <li>
+            <a>Tweets</a>
+          </li>
+        </>
+      ) : (
+        ""
+      )}
+    </nav>
+  );
+};
+export default Nav;

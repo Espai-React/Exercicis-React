@@ -1,0 +1,24 @@
+.contenidor {
+  margin: 3rem auto;
+  background-color: white;
+  padding: 2rem;
+  width: 50vw;
+  border: .5rem solid #ccc;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.contenidor h2 {
+  font-size: 2.3rem;
+}
+
+.contenidor button {
+  font-size: 1.6rem;
+  padding: 1rem 2rem;
+  border: .2rem solid #ccc;
+  border-radius: 1rem;
+}
