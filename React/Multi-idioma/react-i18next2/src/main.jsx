@@ -1,10 +1,11 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import i18n from 'i18next';
 import { initReactI18next, useTranslation } from 'react-i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
 
 //import App from './App.jsx'
-import './index.css'
+import './index.css';
 
 const resources = {
   en: {
@@ -21,18 +22,27 @@ const resources = {
 
 i18n
   .use(initReactI18next)
+  .use(LanguageDetector)
   .init({
     resources,
-    lng: document.querySelector('html').lang,
-    fallbackLng: 'en',
+    fallbackLng: 'ca',
+    detection: {
+      order: [
+        'htmlTag',
+        'cookie',
+        'localStorage',
+        'navigator',
+        'path',
+        'subdomain',
+      ]
+    },
     interpolation: {
       escapeValue: false,
     },
   });
 
 const App = () => {
-
-  const {t} = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <div>
@@ -46,5 +56,5 @@ export default App;
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);
