@@ -1,57 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import i18n from 'i18next';
-import { initReactI18next, useTranslation } from 'react-i18next';
+import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
+import HttpAPi from 'i18next-http-backend';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
+import 'flag-icon-css/css/flag-icons.min.css';
 
-//import App from './App.jsx'
+import App from './App.jsx'
 import './index.css';
-
-const resources = {
-  en: {
-    translation: {
-      'Welcome to React': 'Welcome to React and react-i18next',
-    },
-  },
-  ca: {
-    translation: {
-      'Welcome to React': 'Benvinguts a React i react-i18next',
-    },
-  },
-};
 
 i18n
   .use(initReactI18next)
   .use(LanguageDetector)
+  .use(HttpAPi)
   .init({
-    resources,
-    fallbackLng: 'ca',
+    supportedLngs: ['en', 'es', 'ar'],
+    fallbackLng: 'en',
     detection: {
-      order: [
-        'htmlTag',
-        'cookie',
-        'localStorage',
-        'navigator',
-        'path',
-        'subdomain',
-      ]
+      order: ['htmlTag', 'cookie', 'localStorage', 'path', 'subdomain'],
+      caches: ['cookie'],
+    },
+    backend: {
+      loadPath: '/src/translation/locales/{{lng}}/translation.json',
     },
     interpolation: {
       escapeValue: false,
     },
+    react: {
+      useSuspense: false,
+    },
   });
-
-const App = () => {
-  const { t } = useTranslation();
-
-  return (
-    <div>
-      <h2>{t('Welcome to React')}</h2>
-    </div>
-  );
-};
-
-export default App;
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
