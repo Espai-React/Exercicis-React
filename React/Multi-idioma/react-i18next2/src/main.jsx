@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import 'flag-icon-css/css/flag-icons.min.css';
 
-import App from './App.jsx'
+import App, { AvisCarrega } from './App.jsx';
 import './index.css';
 
 i18n
@@ -16,10 +16,10 @@ i18n
   .use(LanguageDetector)
   .use(HttpAPi)
   .init({
-    supportedLngs: ['en', 'es', 'ar'],
-    fallbackLng: 'en',
+    supportedLngs: ['en', 'fr', 'ar'],
+    fallbackLng: 'fr',
     detection: {
-      order: ['htmlTag', 'cookie', 'localStorage', 'path', 'subdomain'],
+      order: ['cookie', 'htmlTag', 'localStorage', 'path', 'subdomain'],
       caches: ['cookie'],
     },
     backend: {
@@ -28,13 +28,12 @@ i18n
     interpolation: {
       escapeValue: false,
     },
-    react: {
-      useSuspense: false,
-    },
   });
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <Suspense fallback={<AvisCarrega />}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </Suspense>
 );
