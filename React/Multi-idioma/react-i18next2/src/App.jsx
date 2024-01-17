@@ -41,6 +41,7 @@ GlobeIcon.propTypes = {
 };
 
 const App = () => {
+  const { t, i18n } = useTranslation();
   const idiomaActual = cookies.get('i18next');
   const { t, i18n } = useTranslation();
   const diesPassats = Math.floor(
@@ -75,8 +76,8 @@ const App = () => {
             <li key={code}>
               <button
                 className='dropdown-item'
-                onClick={() => i18n.changeLanguage(code)}
-                disabled={idiomaActual === code}>
+                href='#'
+                onClick={() => i18n.changeLanguage(code)}>
                 <span
                   className={`flag-icon flag-icon-${country_code} mx-2`}></span>
                 {name}
