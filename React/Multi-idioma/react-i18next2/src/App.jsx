@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { PropTypes } from 'prop-types';
-import './App.css';
 import { useEffect, useState } from 'react';
 import cookies from 'js-cookie';
+import './App.css';
 
 const languages = [
   {
@@ -43,14 +43,12 @@ GlobeIcon.propTypes = {
 const App = () => {
   const { t, i18n } = useTranslation();
   const idiomaActual = cookies.get('i18next');
-  const { t, i18n } = useTranslation();
   const diesPassats = Math.floor(
     (new Date() - new Date('2021-03-07')) / (1000 * 60 * 60 * 24)
   );
 
   useEffect(() => {
     console.log('idiomaActual -->', idiomaActual);
-
     idiomaActual === 'ar'
       ? document.querySelector('html').setAttribute('dir', 'rtl')
       : document.querySelector('html').setAttribute('dir', 'ltr');
