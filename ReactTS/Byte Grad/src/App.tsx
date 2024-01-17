@@ -1,5 +1,5 @@
 import './App.css';
-import Boto1 from './components/Boto1';
+import { Boto1 } from './components/Boto1';
 
 const App = () => (
   <div className='min-h-screen bg-gray-800 p-10 rounded-xl flex flex-col gap-6'>
