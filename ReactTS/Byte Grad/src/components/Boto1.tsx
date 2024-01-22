@@ -1,10 +1,10 @@
-type Color = 'blue-500' | 'orange-200' | 'Lime-200';
+type Color = 'bg-blue-500' | 'bg-orange-200' | 'bg-lime-200';
 
 type BotoTailwindT = {
   background: Color;
   color: string;
   fontSize: string;
-  padding: [number, number];
+  padding: [string, string];
   disabled?: boolean;
 };
 
@@ -33,7 +33,7 @@ const BotoTailwind: React.FC<BotoTailwindT> = ({
   disabled,
 }) => (
   <button
-    className={`self-center bg-${background} text-[${fontSize}px] text-${color} rounded px-[${padding[0]}px] py-${padding[1]}`}
+    className={`self-center ${background} ${fontSize} ${color} ${padding[0]} ${padding[1]}`}
     disabled={disabled}>
     Click me
   </button>

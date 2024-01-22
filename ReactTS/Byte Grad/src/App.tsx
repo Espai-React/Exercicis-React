@@ -8,18 +8,20 @@ const App = () => (
       <hr className='mx-auto w-2/3 border-orange-300 border-2 my-2' />
     </div>
     <BotoTailwind
-      background='blue-500'
-      color='white'
-      fontSize='20'
-      padding={[6, 4]}
+      background='bg-blue-500'
+      color='text-white'
+      fontSize='text-xl'
+      padding={['py-4','px-8']}
       disabled={false}
     />
     <BotoCSS
       styles={{
+        margin: '0 auto',
+        width: 'fit-content',
         background: 'red',
         color: 'white',
         fontSize: 20,
-        padding: '2px 4px',
+        padding: '8px 25px',
       }}
       borderRadius={{
         borderTopLeftRadius: 4,
