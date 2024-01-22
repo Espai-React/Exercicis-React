@@ -1,11 +1,13 @@
-type Color = 'bg-blue-500' | 'bg-orange-200' | 'bg-lime-200';
+type unionTypeColor = 'bg-blue-500' | 'bg-orange-200' | 'bg-lime-200';
 
 type BotoTailwindT = {
-  background: Color;
+  background: unionTypeColor;
   color: string;
   fontSize: string;
-  padding: [string, string];
+  tupleTypePadding: [string, string];
   disabled?: boolean;
+  handleClick: (id: string) => void;
+  children: React.ReactNode;
 };
 
 type BotoCSST = {
@@ -13,6 +15,8 @@ type BotoCSST = {
   borderRadius: { [key: string]: number };
   /*borderRadius: Record<string, number>;*/
   disabled?: boolean;
+  handleClick: (id: string) => void;
+  children: React.ReactNode;
 };
 
 /* export function Boto1({ background, color, fontSize, disabled }: ButtonProps) {
@@ -29,21 +33,35 @@ const BotoTailwind: React.FC<BotoTailwindT> = ({
   background,
   color,
   fontSize,
-  padding,
+  tupleTypePadding,
   disabled,
-}) => (
+  handleClick,
+  children,
+}): JSX.Element => (
   <button
-    className={`self-center ${background} ${fontSize} ${color} ${padding[0]} ${padding[1]}`}
-    disabled={disabled}>
-    Click me
+    id='blau'
+    className={`self-center ${background} ${fontSize} ${color} ${tupleTypePadding[0]} ${tupleTypePadding[1]} rounded-xl`}
+    disabled={disabled}
+    onClick={(e) => handleClick(e.currentTarget.id)}>
+    {children}
   </button>
 );
 
 export { BotoTailwind };
 
-const BotoCSS: React.FC<BotoCSST> = ({ styles, borderRadius, disabled }) => (
-  <button style={{ ...styles , ...borderRadius }} disabled={disabled}>
-    Click me
+const BotoCSS: React.FC<BotoCSST> = ({
+  styles,
+  borderRadius,
+  disabled,
+  handleClick,
+  children,
+}) => (
+  <button
+    id='vermell'
+    style={{ ...styles, ...borderRadius }}
+    disabled={disabled}
+    onClick={(e) => handleClick(e.currentTarget.id)}>
+    {children}
   </button>
 );
 
