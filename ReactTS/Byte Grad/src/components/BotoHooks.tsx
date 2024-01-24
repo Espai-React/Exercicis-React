@@ -1,11 +1,26 @@
 import { useState } from 'react';
 
-const BotoHook: React.FC = () => {
+/* type TFocus = {
+  inc: boolean;
+  dec: boolean;
+}; */
+
+type TFocus = {
+  inc: boolean | null;
+  dec: boolean | null;
+};
+
+const BotoHooks: React.FC = () => {
   const [counter, setCounter] = useState(0);
   const [text, setText] = useState("Clica'm");
-  const [focus, setFocus] = useState({ inc: false, dec: false });
+  /* const [focus, setFocus] = useState<TFocus | null>(null);
+  const inc = focus?.inc;
+  const dec = focus?.dec; */
+  const [focus, setFocus] = useState<TFocus>({
+    inc: null,
+    dec: null,
+  });
   const { inc, dec } = focus;
-
   const handleClick = ({
     currentTarget: { id },
   }: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -44,4 +59,4 @@ const BotoHook: React.FC = () => {
   );
 };
 
-export default BotoHook;
+export { BotoHooks };

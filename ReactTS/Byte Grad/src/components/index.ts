@@ -1,4 +1,4 @@
-import { BotoTailwind, BotoCSS, BotoRest } from './Boto1';
-import { icona1, icona2, icona3 } from './Icones';
-
-export { BotoTailwind, BotoCSS, BotoRest, icona1, icona2, icona3 };
+export {  BotoTailwind ,  BotoCSS ,  BotoRest  } from "./Boto";
+export {  BotoHooks  } from "./BotoHooks";
+export { default as Divisor } from "./Divisor";
+export { icona1, icona2, icona3 } from "./Icones";
