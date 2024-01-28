@@ -69,7 +69,7 @@ export { BotoCSS };
 
 /* ...rest no agafa ni funcions ni el children */
 const BotoRest: React.FC<TBotoRest> = ({ handleClick, children, ...rest }) => (
-  <button id='verd' onClick={handleClick} {...rest}>
+  <button id='verd' onClick={handleClick} {...rest} className="text">
     {children}
   </button>
 );
