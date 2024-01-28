@@ -11,14 +11,15 @@ import {
   icona3,
   Llista,
   LlistaOmit,
-  Generics
+  Generics,
 } from './components';
 
 type Tsalutacio = 'Bona tarda tinguem tot' | 'Vite + React + TS' | string;
 
 const App = () => {
-  const [count, setcount] = useState<number>(0);
-  const [quiEs, setQuiEs] = useState<string>('');
+  const [count, setcount] = useState(0);
+  const [quiEs, setQuiEs] = useState('');
+  const [usuari, setUsuari] = useState<string | null>(null);
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const { id } = e.currentTarget;
@@ -35,6 +36,17 @@ const App = () => {
     () => ['Bona tarda tinguem tot', 'Vite + React + TS', salutacio3] as const,
     [salutacio3]
   );
+
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then((res) => res.json())
+      .then((data: unknown) => {
+        if (Array.isArray(data) && data.every((item) => typeof item === 'string')) {
+          const dades: string = data[0].name;
+          setUsuari(dades);
+        }
+      });
+  }, []);
 
   useEffect(() => {
     const textSalutacio = salutacio[
@@ -95,8 +107,11 @@ const App = () => {
       <Divisor titol='Salutacio' fontSize='text-xl' />
       <p>{salutacio}</p>
 
-      <Divisor titol='Salutacio' fontSize='text-xl' />
-      <Generics/>
+      <Divisor titol='Genèrics' fontSize='text-xl' />
+      <Generics valorProp={5} historicValor={[10, 20, 30]} />
+
+      <Divisor titol='Usuari placeholder' fontSize='text-xl' />
+      <p className='text-white text-sm'>Usuari: {usuari}</p>
     </div>
   );
 };

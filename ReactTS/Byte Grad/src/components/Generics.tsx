@@ -1,13 +1,27 @@
 import { useRef, useState } from 'react';
 
-const Generics: React.FC = () => {
+/* Et fa un array del mateix tipus que l'element que li arriba.
+     T, és per no confondre-ho amb un element JSX */
+const converteixArr = <T,>(valor: T): T[] => [valor];
+const separaElements = (valor: unknown[]) => {
+  if (Array.isArray(valor) && typeof valor[0] === 'string') {
+    return valor[0].split('');
+  }
+  return null;
+};
+
+type TGenerics<T> = {
+  valorProp: T;
+  historicValor: T[];
+};
+
+const Generics: React.FC<TGenerics<T>> = ({
+  valorProp,
+  historicValor,
+}) => {
+  //. . .
   const [valor, setValor] = useState<string[] | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-
-  /* Et fa un array del mateix tipus que l'element que li arriba.
-     T, és per no confondre-ho amb un element JSX */
-  const converteixArr = <T,>(valor: T): T[] => [valor];
-  const separaElements = (valor: string[]) => valor[0].split('');
 
   const handleClick = () => {
     setValor(null);
@@ -16,7 +30,7 @@ const Generics: React.FC = () => {
     const textArr = converteixArr(text);
     console.log(textArr);
     if (textArr) setValor(separaElements(textArr));
-    console.log(valor);
+    console.log(separaElements(textArr));
   };
 
   return (
@@ -38,18 +52,39 @@ const Generics: React.FC = () => {
           valor.map((element, index) => {
             if (index == valor.length - 1) {
               return (
-                <div className='flex gap-2'>
-                  <li key={index}>{element}</li>
+                <div key={index} className='flex gap-2'>
+                  <li>{element}</li>
                 </div>
               );
             }
             return (
-              <div className='flex gap-2'>
-                <li key={index}>{element}</li>
+              <div key={index} className='flex gap-2'>
+                <li>{element}</li>
                 <li> - </li>
               </div>
             );
           })}
+      </ul>
+      <p className='flex justify-center gap-2 text-white text-sm'>
+        Valor actual:<span>{valorProp}</span>
+      </p>
+      <ul className='flex justify-center gap-2 p-4 text-white text-sm'>
+        <span>Sèrie:</span>
+        {historicValor.map((num, index) => {
+          if (index == historicValor.length - 1) {
+            return (
+              <div key={index} className='flex gap-2'>
+                <li>{num}</li>
+              </div>
+            );
+          }
+          return (
+            <div key={index} className='flex gap-2'>
+              <li>{num}</li>
+              <li> - </li>
+            </div>
+          );
+        })}
       </ul>
     </div>
   );
