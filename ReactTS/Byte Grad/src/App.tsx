@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import './App.css';
 import {
   Divisor,
@@ -9,7 +9,12 @@ import {
   icona1,
   icona2,
   icona3,
+  Llista,
+  LlistaOmit,
+  Generics
 } from './components';
+
+type Tsalutacio = 'Bona tarda tinguem tot' | 'Vite + React + TS' | string;
 
 const App = () => {
   const [count, setcount] = useState<number>(0);
@@ -21,9 +26,26 @@ const App = () => {
     setQuiEs(`Click al botó ${id}`);
   };
 
+  /* Com a const, són només de lectura i te'ls mostra amb un hover' */
+  const lis1Llista = ['Inici', 'Sobre nosaltres', 'Contacte'] as const;
+  const lis2Llista = ['Projectes', 'Blog', 'FAQ'] as const;
+
+  const salutacio3 = 'O no...';
+  const salutacio = useMemo(
+    () => ['Bona tarda tinguem tot', 'Vite + React + TS', salutacio3] as const,
+    [salutacio3]
+  );
+
+  useEffect(() => {
+    const textSalutacio = salutacio[
+      Math.floor(Math.random() * salutacio.length)
+    ] as Tsalutacio;
+    document.title = textSalutacio;
+  }, [salutacio]);
+
   return (
     <div className='min-h-screen bg-gray-800 p-24 rounded-xl flex flex-col gap-6 text-orange-300 text-lg font-semibold'>
-      <Divisor titol='React TS' fonSize='text-2xl' />
+      <Divisor titol='React TS' fontSize='text-2xl' />
       <BotoTailwind
         background='bg-blue-500'
         color='text-white'
@@ -61,8 +83,20 @@ const App = () => {
 
       <p>El compte és {count}</p>
       <p>{quiEs}</p>
-      <Divisor titol='Hooks' fonSize='text-xl' />
+      <Divisor titol='Hooks' fontSize='text-xl' />
       <BotoHooks />
+
+      <Divisor titol='Llista' fontSize='text-xl' />
+      <Llista lis1Llista={lis1Llista} lis2Llista={lis2Llista} />
+
+      <Divisor titol='Llista Omit' fontSize='text-xl' />
+      <LlistaOmit lis2Llista={lis2Llista} />
+
+      <Divisor titol='Salutacio' fontSize='text-xl' />
+      <p>{salutacio}</p>
+
+      <Divisor titol='Salutacio' fontSize='text-xl' />
+      <Generics/>
     </div>
   );
 };

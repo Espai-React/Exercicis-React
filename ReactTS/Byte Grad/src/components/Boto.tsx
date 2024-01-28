@@ -5,9 +5,9 @@ type unionTypeColor = 'bg-blue-500' | 'bg-orange-200' | 'bg-lime-400';
     Opcions amb React.ComponentPropsWithRef<'button'>
 */
 type TBotoTailwind = React.ComponentProps<'button'> & {
-  background: unionTypeColor;
-  color: string;
+  /* color: string; */
   fontSize: string;
+  background: unionTypeColor;
   tupleTypePadding: [string, string];
   handleClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   children: React.ReactNode;
@@ -24,10 +24,10 @@ type TBotoCSS = {
 };
 
 type TBotoRest = React.ComponentPropsWithoutRef<'button'> & {
-    className: string;
-    handleClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-    children: React.ReactNode;
-  };
+  handleClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  /* className: string;
+  children: React.ReactNode; */
+};
 
 const BotoTailwind: React.FC<TBotoTailwind> = ({
   background,
@@ -66,13 +66,10 @@ const BotoCSS: React.FC<TBotoCSS> = ({
 );
 
 export { BotoCSS };
-  
+
 /* ...rest no agafa ni funcions ni el children */
-const BotoRest: React.FC<TBotoRest> = ({ children, handleClick, ...rest }) => (
-  <button
-    id='verd'
-    onClick={handleClick}
-    {...rest}>
+const BotoRest: React.FC<TBotoRest> = ({ handleClick, children, ...rest }) => (
+  <button id='verd' onClick={handleClick} {...rest}>
     {children}
   </button>
 );

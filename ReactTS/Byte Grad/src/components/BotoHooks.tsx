@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 /* type TFocus = {
   inc: boolean;
@@ -21,17 +21,27 @@ const BotoHooks: React.FC = () => {
     dec: null,
   });
   const { inc, dec } = focus;
+
+  const refInc = useRef<HTMLButtonElement | null>(null);
+  const refDec = useRef<HTMLButtonElement>(null);
+  const refText = useRef<HTMLParagraphElement | null>(null);
+
   const handleClick = ({
     currentTarget: { id },
   }: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     if (id == 'inc') {
       setCounter(counter + 1);
       setFocus({ inc: false, dec: true });
+      setText('incrementant');
+      if (refText.current && refInc.current)
+        refText.current.textContent = refInc.current.textContent;
     } else if (id == 'dec') {
       setCounter(counter - 1);
       setFocus({ inc: true, dec: false });
+      setText('decrementant');
+      if (refText.current && refDec.current)
+        refText.current.textContent = refDec.current.textContent;
     }
-    setText(id == 'inc' ? 'incrementant' : 'decrementant');
   };
 
   return (
@@ -39,6 +49,7 @@ const BotoHooks: React.FC = () => {
       <div className='flex gap-6 justify-center mb-8'>
         <button
           id='inc'
+          ref={refInc}
           onClick={handleClick}
           className={`bg-blue-500 rounded-xl py-2 px-4 text-white text-sm ${
             inc ? 'opacity-50' : ''
@@ -47,6 +58,7 @@ const BotoHooks: React.FC = () => {
         </button>
         <button
           id='dec'
+          ref={refDec}
           onClick={handleClick}
           className={`bg-red-600 rounded-xl py-2 px-4 text-white text-sm ${
             dec ? 'opacity-50' : ''
@@ -54,6 +66,7 @@ const BotoHooks: React.FC = () => {
           Decrementar <span className='text-xs'>({text})</span>
         </button>
       </div>
+      <p ref={refText} className='h-8'></p>
       <p>El compte és {counter}</p>
     </div>
   );
