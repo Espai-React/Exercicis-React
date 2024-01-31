@@ -15,7 +15,7 @@ type TGenerics<T> = {
   historicValor: T[];
 };
 
-const Generics: React.FC<TGenerics<T>> = ({
+const Generics: React.FC<TGenerics<T,>> = ({
   valorProp,
   historicValor,
 }) => {
@@ -30,7 +30,6 @@ const Generics: React.FC<TGenerics<T>> = ({
     const textArr = converteixArr(text);
     console.log(textArr);
     if (textArr) setValor(separaElements(textArr));
-    console.log(separaElements(textArr));
   };
 
   return (

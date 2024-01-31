@@ -1,14 +1,19 @@
-import bubbles from "../assets/bubbles.svg";
+import {
+  BotoChat,
+  BotoChatPetit,
+  Chitchat,
+} from '../components/index';
 
 const Home = () => (
-  <div className=" contenidor flex items-end gap-6 max-w-sm my-0 mx-auto p-6 rounded-lg bg-white shadow-xl">
-    <div className="contenidor-img flex-shrink-0">
-      <img className="w-12 h-12" src={bubbles} alt="ChitChat Logo"/>
+  // <div className="min-h-screen flex flex-col/* justify-center items-center */ place-items-center">
+  <div className="pageHome--> grid min-h-screen place-content-center gap-2">
+    <Chitchat />
+    <div className="flex justify-center gap-4">
+      <BotoChatPetit color='primari'>Un botó</BotoChatPetit>
+      <BotoChatPetit color='secundari'>Un altre botó</BotoChatPetit>
     </div>
-    <div className="contenidor-text">
-      <h4 className="text-[#1a202c] text-xl leading-tight">ChitChat</h4>
-      <p className="text-[#718096] text-base">You have a new message!</p>
-    </div>
+    <BotoChat>El millor botó</BotoChat>
+    <BotoChat>Un altre botó</BotoChat>
   </div>
 );
 
