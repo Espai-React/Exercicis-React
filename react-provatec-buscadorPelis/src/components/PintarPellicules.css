@@ -1,0 +1,44 @@
+.llista {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 2rem;
+
+  .element-llista {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+
+    .titol-element-llista {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+
+      h3,
+      p {
+        margin: 0;
+        text-align: center;
+      }
+    }
+
+    .cartell-element {
+      display: flex;
+      place-content: center;
+      max-height: 75%;
+
+      img {
+        width: 100;
+        height: 100%;
+        object-fit: fill;
+        border: 3px solid #ad1a1a;
+        border-radius: 5px;
+      }
+    }
+  }
+}

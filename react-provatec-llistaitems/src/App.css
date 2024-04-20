@@ -1,0 +1,74 @@
+.container {
+  max-width: 80vw;
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  padding: 2rem 1rem;
+
+  .bloc-titol {
+    text-align: center;
+  }
+
+  .aside-bloc-form {
+    width: 100%;
+
+    .bloc-form {
+      width: 100%;
+      padding: 0 1rem;
+      display: flex;
+      flex-flow: wrap;
+      align-items: end;
+      justify-content: space-between;
+      gap: 1rem;
+      place-content: center;
+
+      label {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+
+        #inputTasca {
+          width: 100%;
+          border-radius: 5px;
+        }
+      }
+
+      button {
+        flex: 0 0 110px;
+        background: olivedrab;
+      }
+    }
+  }
+
+  .seccio-llista {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 1rem;
+
+    .bloc-llista {
+      padding: 1rem;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+
+      .llista {
+        display: flex;
+        flex-direction: column;
+        gap: .75rem;
+      }
+    }
+  }
+}

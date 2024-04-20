@@ -1,0 +1,33 @@
+.container {
+	max-width: 1200px;
+	padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+
+		h2 {
+			text-align: center;
+      margin-bottom: 2rem;
+		}
+
+  .bloc-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+
+    .bloc-input {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .bloc-main {
+		width: 100%;  display: flex;
+    place-content: center;
+  }
+}
