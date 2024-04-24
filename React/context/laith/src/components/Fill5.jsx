@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { CompteContext } from '../../context/CompteContext';
+import { CompteContext } from '../context/CompteContext';
 
 const Fill5 = () => {
   const { compte } = useContext(CompteContext);

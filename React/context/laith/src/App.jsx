@@ -1,4 +1,4 @@
-import { CompteProvider } from '../context/CompteContext';
+import { CompteProvider } from './context/CompteContext';
 import './App.css';
 import Comptador from './components/Comptador';
 

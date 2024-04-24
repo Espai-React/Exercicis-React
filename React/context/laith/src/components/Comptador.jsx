@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { CompteContext } from '../../context/CompteContext';
+import { CompteContext } from '../context/CompteContext';
 import Fill1 from './Fill1';
 
 const Comptador = () => {
