@@ -3,7 +3,7 @@ import {
   BotoChatPetit,
   BotoMode,
   Chitchat,
-} from '../components/index';
+} from '../components';
 
 const Home = () => (
   // <div className="min-h-screen flex flex-col/* justify-center items-center */ place-items-center">
