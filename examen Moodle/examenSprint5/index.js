@@ -80,34 +80,54 @@ let arrayProfessorsMapPla = [];
 })();
 
 // Aconseguir un array dels repetits
-// Fer-ho només amb arrays i un reduce
+// Doble for
 (() => {
-  const arrayProfessorsSenseRepetir = arrayProfessorsMapPla.reduce(
-    (noRepetit, professor, index, array) => {
+  const arrayProfessorsRepetits = [];
+  for (let i = 0; i < arrayProfessorsMapPla.length; i++) {
+    for (let j = 0; j < arrayProfessorsMapPla.length; j++) {
+      if (
+        arrayProfessorsMapPla[i] === arrayProfessorsMapPla[j] &&
+        !arrayProfessorsRepetits.includes(arrayProfessorsMapPla[j]) &&
+        i != j
+      )
+        arrayProfessorsRepetits.push(arrayProfessorsMapPla[j]);
+    }
+  }
+  console.log('Doble for -->', arrayProfessorsRepetits);
+})();
+
+// Arrays i un reduce
+(() => {
+  const arrayProfessorsRepetits = arrayProfessorsMapPla.reduce(
+    (repetits, professor, index, array) => {
       if (
         array.indexOf(professor) !== array.lastIndexOf(professor) &&
-        !noRepetit.includes(professor)
+        !repetits.includes(professor)
       ) {
-        noRepetit.push(professor);
+        repetits.push(professor);
       }
-      return noRepetit;
+      return repetits;
     },
     []
   );
   console.log(
     'Fer-ho només amb arrays i un reduce -->',
-    arrayProfessorsSenseRepetir
+    arrayProfessorsRepetits
   );
 })();
 
 // Aconseguir un array amb els repetits
 (() => {
-  const arrayProfessorsSenseRepetir = arrayProfessorsMapPla.reduce(
-    (noRepetit, professor, index, array) => array.indexOf(professor) === index,
+  const arrayProfessorsRepetits = arrayProfessorsMapPla.reduce(
+    (repetits, professor, index, array) => {
+      if (index !== array.indexOf(professor) && !repetits.includes(professor))
+        repetits.push(professor);
+      return repetits;
+    },
     []
   );
   console.log(
-    'Aconseguir un array amb els repetits',
-    arrayProfessorsSenseRepetir
+    'Aconseguir un array amb els repetits -->',
+    arrayProfessorsRepetits
   );
 })();
