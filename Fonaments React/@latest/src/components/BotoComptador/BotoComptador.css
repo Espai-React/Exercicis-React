@@ -1,0 +1,12 @@
+.bloc-botons {
+  display: flex;
+  gap:2rem;
+}
+
+.botoIncrement {
+  background-color: green;
+}
+
+.botoDecrement {
+  background-color: red;
+}
